@@ -75,7 +75,8 @@ const projectConfig = {
   cookieSecret: process.env.COOKIE_SECRET,
   store_cors: STORE_CORS,
   database_url: DATABASE_URL,
-  admin_cors: ADMIN_CORS,  redis_url: REDIS_URL,
+  admin_cors: ADMIN_CORS,
+  redis_url: REDIS_URL,
 };
 
 /** @type {import('@medusajs/medusa').ConfigModule} */
