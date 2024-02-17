@@ -64,32 +64,23 @@ const plugins = [
     options: {
       api_key: process.env.SENDGRID_API_KEY,
       from: process.env.SENDGRID_FROM,
-      // order_placed_template: process.env.SENDGRID_ORDER_PLACED_ID,
-      // localization: {
-      //   "pt-BR": {
-      //     order_placed_template: process.env.SENDGRID_ORDER_PLACED_ID_LOCALIZED,
-      //   },
-      // },
     },
   },
-  // {
-  //   resolve: `medusa-plugin-wishlist`,
-  // },
 ];
 
 const modules = {
-  /*eventBus: {
+  eventBus: {
     resolve: "@medusajs/event-bus-redis",
     options: {
-      redisUrl: REDIS_URL
-    }
+      redisUrl: REDIS_URL,
+    },
   },
   cacheService: {
     resolve: "@medusajs/cache-redis",
     options: {
-      redisUrl: REDIS_URL
-    }
-  },*/
+      redisUrl: REDIS_URL,
+    },
+  },
 };
 
 /** @type {import('@medusajs/medusa').ConfigModule["projectConfig"]} */
@@ -99,7 +90,7 @@ const projectConfig = {
   store_cors: STORE_CORS,
   database_url: DATABASE_URL,
   admin_cors: ADMIN_CORS,
-  // redis_url: REDIS_URL,
+  redis_url: REDIS_URL,
 };
 
 /** @type {import('@medusajs/medusa').ConfigModule} */
