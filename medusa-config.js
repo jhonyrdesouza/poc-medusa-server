@@ -64,7 +64,38 @@ const plugins = [
     options: {
       api_key: process.env.SENDGRID_API_KEY,
       from: process.env.SENDGRID_FROM,
+      user_password_reset_template: "d-00495b2088f841659ad83e62214111d6",
     },
+  },
+  {
+    resolve: `medusa-plugin-meilisearch`,
+    options: {
+      // config object passed when creating an instance
+      // of the MeiliSearch client
+      config: {
+        host: process.env.MEILISEARCH_HOST,
+        apiKey: process.env.MEILISEARCH_API_KEY,
+      },
+      settings: {
+        indexName: {
+          indexSettings: {
+            searchableAttributes: ["title", "description", "variant_sku"],
+            displayedAttributes: [
+              "id",
+              "title",
+              "description",
+              "variant_sku",
+              "thumbnail",
+              "handle",
+            ],
+          },
+          primaryKey: "id",
+        },
+      },
+    },
+  },
+  {
+    resolve: `medusa-plugin-discount-generator`,
   },
 ];
 
@@ -80,6 +111,12 @@ const modules = {
     options: {
       redisUrl: REDIS_URL,
     },
+  },
+  inventoryService: {
+    resolve: "@medusajs/inventory",
+  },
+  stockLocationService: {
+    resolve: "@medusajs/stock-location",
   },
 };
 
